@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Jeux-de-Mots": {
+    "jeux-de-mots-aigle": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,18 +13,20 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Jeux-de-Mots",
+            "outputPath": "dist/jeux-de-mots-aigle",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.png",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "./node_modules/@syncfusion/ej2/material.css"
             ],
             "scripts": []
           },
@@ -67,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Jeux-de-Mots:build"
+            "browserTarget": "jeux-de-mots-aigle:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Jeux-de-Mots:build:production"
+              "browserTarget": "jeux-de-mots-aigle:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Jeux-de-Mots:build"
+            "browserTarget": "jeux-de-mots-aigle:build"
           }
         },
         "test": {
@@ -93,7 +91,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -115,15 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Jeux-de-Mots:serve"
+            "devServerTarget": "jeux-de-mots-aigle:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Jeux-de-Mots:serve:production"
+              "devServerTarget": "jeux-de-mots-aigle:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "Jeux-de-Mots"
+    }
+  },
+  "defaultProject": "jeux-de-mots-aigle"
 }

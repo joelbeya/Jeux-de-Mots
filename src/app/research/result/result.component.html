@@ -1,0 +1,38 @@
+
+<app-research-form></app-research-form>
+
+<div class="container shadow p-3 mb-5 bg-white" style="border-radius: 20px; padding-top: 12px;">
+  <div *ngIf="wait" class="d-flex justify-content-center">
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="mt-1" *ngIf="word!=''" style="border-radius: 20px; padding-top: 12px;">
+    <div class="card mb-4" style="border-radius: 10px;">
+      <div class="card-header font-weight-bold text-center" (click)="show = !show">{{word}} <div style="float: right"><i *ngIf="show" class="fas fa-angle-down"></i><i *ngIf="!show" class="fas fa-angle-up"></i>  </div></div>
+      <div *ngIf="show && !wait" class="card-body">
+        <span *ngFor="let line of resultat.def[1].split('\n\n')">{{(line.length > 0) ? line.split("\n")[0] + " [...]" : ''}} <br> </span>
+        <app-raffinement *ngIf="resultat.def[2].length != 0" [array]="resultat.def[2]"></app-raffinement>
+
+      </div>
+    </div>
+
+    <div class="container" style="border-radius: 20px; padding-top: 12px;">
+      <div class="row d-flex justify-content-between">
+        <a class="d-block" [routerLink]="['.']" fragment="relation" *ngFor="let rel of resultat.relations"><button class="rounded-pill btn btnRel p-2" (click)="onSelectedRelation(rel[0])">{{relationshipNames[rel[0]]}}</button></a>
+      </div>
+      <app-relation id="relation" *ngIf="relShow.length!=0" [rel] = "relShow"></app-relation>
+    </div>
+
+
+  </div>
+
+
+</div>

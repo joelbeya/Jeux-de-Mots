@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row mb-5">
+        <div class="mt-5 text-center w-100">
+          <h2>
+            Le dictionnaire d'associations lexicales contributif et libre de <br>
+            <a href="http://www.jeuxdemots.org/diko.php"><span class="badge badge-dark">JeuxDeMots</span></a></h2>
+        </div>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="form-inline w-100 d-block mt-5">
+        <div class="input-group md-form form-sm form-1 pl-0 d-flex justify-content-center">
+            <div class="bg-white rounded-pill col-md-9 d-flex mt-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text blue rounded-circle" id="basic-text1"><i class="fas fa-search"></i></span>
+            </div>
+            <ejs-autocomplete
+                    name='word'
+                    id='word'
+                    highlight='false'
+                    class="form-control text-center border-0 shadow-0 w-75"
+                    cssClass="ejsForm"
+                    [dataSource]='word'
+                    [ignoreCase]='false'
+                    [highlight]='false'
+                    [ignoreAccent]='false'
+                    placeholder='ex : chat'
+                    ngModel required>
+            </ejs-autocomplete>
+            </div>
+            <button type="submit"
+                    class="rounded-pill btn mt-2 col-md">Rechercher</button>
+        </div>
+      </form>
+    </div>
+</div>
+
+
+<!-- <div class="container justify-content">
+  <div class="row">
+    <div class="col-12 mt-4">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group row justify-content-between">
+          <label for="word" class="align-self-center mt-2 col-md-auto">Entrez un terme</label>
+          <div class="form-control mt-2 mb-2 col-md-8">
+            <ejs-autocomplete
+              name='word'
+              id='word'
+              [dataSource]='word'
+              [ignoreCase]='false'
+              [ignoreAccent]='false'
+              placeholder='ex: coquelicot'
+              ngModel required>
+            </ejs-autocomplete>
+          </div>
+          <div class="col-md-auto mt-2">
+            <button
+              type="submit"
+              class="btn btn-primary">Rechercher</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->

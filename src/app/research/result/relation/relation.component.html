@@ -1,0 +1,110 @@
+<div class="card mt-4 mb-4">
+  <div class="card-header d-md-flex justify-content-between">
+    <h5 class="mt-auto flex-grow-1">{{rel[1]}}</h5>
+      <button type="button" class="btn btn-outline-primary mr-4" (click)="ordreAlphabetique()">Par ordre alphabétique <i class="fas fa-sort-alpha-down"></i></button>
+      <button type="button" class="btn btn-outline-primary" (click)="ordrePoids()">Par poids <i class="fas fa-weight-hanging"></i> </button>
+  </div>
+
+  <div class="card-body">
+
+    <div  class="text-center">
+      Je veux afficher <input min="1" class="m-2" style="width: 80px;" type="number" [(ngModel)]="itemsPerPageV" /> relations par page !
+    </div>
+    <div class="text-center">
+      Afficher en colonne<br>
+      <label class="switch" >
+        <input type="checkbox" [checked]="toggled" (change)="toggled = !toggled">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div *ngIf="toggled" class="row">
+      <div class="col-md pt-2" *ngIf="sortantes.length!=0">
+        <h5 class="text-center colorP">Relations Sortantes</h5>
+
+        <table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+          <tbody>
+            <tr *ngFor="let s of sortantes | paginate: { itemsPerPage: itemsPerPageV, currentPage: p1, id: 's'+rel[0] }">
+              <p [title]="s[1]" class="p-1 m-2">
+                <a [routerLink]="['/research', s[0]]">
+                  <span *ngIf="s[0][0]==='='; else elseS"> <img src="../../../../assets/img/eng.svg" width="20px"> {{s[0].slice(1, -1)}}</span> <!-- C'est un mot anglais qu'on surligne -->
+                  <ng-template #elseS>{{s[0]}}</ng-template>
+                </a>
+              </p>
+            </tr>
+          </tbody>
+        </table>
+
+        <pagination-controls
+                [autoHide]="true"
+                [responsive]="true"
+                [maxSize]="5"
+                [previousLabel]="'Prec.'"
+                [nextLabel]="'Suiv.'"
+                (pageChange)="p1 = $event" id="s{{rel[0]}}"></pagination-controls>
+      </div>
+
+      <div class="col-md pt-2" *ngIf="entrantes.length!=0">
+        <h5 class="text-center colorP">Relations Entrantes</h5>
+        <table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+          <tbody>
+            <tr *ngFor="let e of entrantes | paginate: { itemsPerPage: itemsPerPageV, currentPage: p2, id: 'e'+rel[0] }">
+              <p [title]="e[1]" class="p-1 m-2">
+                <a [routerLink]="['/research', e[0]]">
+                  <span *ngIf="e[0][0]==='='; else elseE"> <img src="../../../../assets/img/eng.svg" width="20px"> {{e[0].slice(1, -1)}}</span>
+                  <ng-template #elseE>{{e[0]}}</ng-template>
+                </a>
+              </p>
+            </tr>
+          </tbody>
+        </table>
+
+        <pagination-controls
+                [responsive]="true"
+                [autoHide]="true"
+                [maxSize]="5"
+                [previousLabel]="'Prec.'"
+                [nextLabel]="'Suiv.'"
+                (pageChange)="p2 = $event" id="e{{rel[0]}}"></pagination-controls>
+      </div>
+    </div>
+
+    <div *ngIf="!toggled" class="row">
+      <div class="col-md pt-2" *ngIf="sortantes.length!=0">
+        <h5 class="text-center colorP">Relations Sortantes</h5>
+          <a [title]="s[1]" *ngFor="let s of sortantes | paginate: { itemsPerPage: itemsPerPageV, currentPage: p1, id: 's'+rel[0] }" [routerLink]="['/research', s[0]]"> *
+            <span *ngIf="s[0][0]==='='; else elseS" > <img src="../../../../assets/img/eng.svg" width="20px"> {{s[0].slice(1, -1)}}</span> <!-- C'est un mot anglais qu'on surligne -->
+            <ng-template #elseS>{{s[0]}}</ng-template>
+          </a>
+
+        <pagination-controls
+                [autoHide]="true"
+                [responsive]="true"
+                [maxSize]="5"
+                [previousLabel]="'Prec.'"
+                [nextLabel]="'Suiv.'"
+                (pageChange)="p1 = $event" id="s{{rel[0]}}"></pagination-controls>
+      </div>
+
+      <div class="col-md pt-2" *ngIf="entrantes.length!=0">
+        <h5 class="text-center colorP">Relations Entrantes</h5>
+          <a [title]="e[1]" *ngFor="let e of entrantes | paginate: { itemsPerPage: itemsPerPageV, currentPage: p2, id: 'e'+rel[0] }" [routerLink]="['/research', e[0]]"> *
+            <span *ngIf="e[0][0]==='='; else elseE"> <img src="../../../../assets/img/eng.svg" width="20px"> {{e[0].slice(1, -1)}}</span>
+            <ng-template #elseE>{{e[0]}}</ng-template>
+          </a>
+
+        <pagination-controls
+                [responsive]="true"
+                [autoHide]="true"
+                [maxSize]="5"
+                [previousLabel]="'Prec.'"
+                [nextLabel]="'Suiv.'"
+                (pageChange)="p2 = $event" id="e{{rel[0]}}"></pagination-controls>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <i class="fas fa-comments"></i> Un bug ? Une erreur ? Une suggestion ? Faites un tour sur le <a class="text-primary" href = "https://jeuxdemots.forumactif.com/">forum</a>
+    </div>
+  </div>
+</div>

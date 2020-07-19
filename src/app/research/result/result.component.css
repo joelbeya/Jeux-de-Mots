@@ -1,0 +1,70 @@
+.border-4 {
+  border-left-width:4px !important;
+}
+
+.animeHover {
+  position: relative;
+}
+
+.overlayPerso {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #755139;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.animeHover:hover .overlayPerso {
+  width: 100%;
+}
+
+.raffinement{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.fa-angle-down{
+  color : #755139;
+}
+
+.fa-angle-up{
+  color : #755139;
+}
+
+.card-header{
+  font-size: 24px;
+}
+
+.card-header:hover{
+  cursor: pointer;
+}
+
+.btn{
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.btnRel{
+  color : black;
+  border-color: black;
+}
+
+.btnRel:hover{
+  color : white;
+  background-color: #755139;
+}
+
+
+.btnRelSelected{
+  color : white;
+  background-color: #755139;
+}

@@ -1,0 +1,7 @@
+<div class="animeHover bg-light border-left border-dark p-2 m-1 border-4" *ngFor="let def of array">
+  <div>
+    <span *ngFor="let line of def[1].split('\n\n')">{{(line.length > 0) ? line.split("\n")[0] + " [...]" :  'Raffinement(s) : ' + def[0]}} <br> </span>
+    <app-raffinement *ngIf="def[2].length!=0" [array]="def[2]"></app-raffinement>
+    <div *ngIf="def[2].length==0" class="overlayPerso"><a class="raffinement ml-5" [routerLink]="['/research', def[0]]">{{def[0]}}</a></div>
+  </div>
+</div>

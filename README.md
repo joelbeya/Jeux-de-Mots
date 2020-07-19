@@ -1,7 +1,6 @@
-# Click on [Jeux-De-Mots-Aigle](https://jeux-de-mots-aigle.herokuapp.com/) to go to the website
+# JeuxDeMots
 
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
 
 ## Development server
 
