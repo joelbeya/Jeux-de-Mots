@@ -1,4 +1,4 @@
-# [Jeux-De-Mots-Aigle](https://jeux-de-mots-aigle.herokuapp.com/)
+# Click on [Jeux-De-Mots-Aigle](https://jeux-de-mots-aigle.herokuapp.com/) to go to the website
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
