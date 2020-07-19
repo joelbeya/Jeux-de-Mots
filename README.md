@@ -1,5 +1,4 @@
-# Jeux-De-Mots-Aigle, This app is served on `https://jeux-de-mots-aigle.herokuapp.com/`
-
+# [Jeux-De-Mots-Aigle](https://jeux-de-mots-aigle.herokuapp.com/)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
